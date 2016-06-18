@@ -17,7 +17,7 @@ public:
     Test();
 	~Test();
     
-    Test(string name, int count):_name(name),_count(count){}
+    Test(string name, int count);
     void description(){Log("Test name:%s, count:%d", _name.c_str(), _count);}
 private:
     string _name;

@@ -10,6 +10,7 @@
 #define __STLTest__VectorTest__
 
 #include "Common.h"
+#include "Test.h"
 
 class VectorTest 
 {
@@ -18,6 +19,10 @@ public:
 	~VectorTest();
     
     void test();
+private:
+    Test t2;
+    Test t1;
+    Test t3;
 };
 
 
