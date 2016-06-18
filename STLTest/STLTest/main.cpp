@@ -6,10 +6,14 @@
 //  Copyright © 2016年 Jack. All rights reserved.
 //
 
-#include <iostream>
+#include "VectorTest.h"
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+    
+    VectorTest *t = new VectorTest();
+    t->test();
+    
+    delete t;
+    
     return 0;
 }
