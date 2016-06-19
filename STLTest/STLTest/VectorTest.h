@@ -23,6 +23,8 @@ private:
     Test t2;
     Test t1;
     Test t3;
+    
+    vector<Test> vec;
 };
 
 

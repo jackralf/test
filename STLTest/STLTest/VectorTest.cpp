@@ -22,6 +22,11 @@ VectorTest::~VectorTest()
     Log("VectorTest::~VectorTest");
 }
 
+void echo(Test t)
+{
+    t.description();
+}
+
 void VectorTest::test()
 {
     Log("size of Test: %d", sizeof(Test));
@@ -31,21 +36,22 @@ void VectorTest::test()
     v.push_back(t1);
     v.push_back(t2);
     v.push_back(t3);
+    Test t4("t3", 3);
     
-    Log("vector size:%d", v.size());
-    v.erase(v.begin());
-    auto begin = v.begin();
-    begin->description();
-    Log("vector size:%d", v.size());
-    
-    for(auto iter : v)
+    vector<Test>::iterator pos = find(v.begin(), v.end(), t4);
+    if(pos != v.end())
     {
-        Log("memory addr %p", &iter);
+        pos->description();
     }
     
-    for(int i = 0; i < v.size(); i ++)
+    Test t5 = t1 + t2;
+    t5.description();
+    v.insert(v.begin(), t5);
+    
+    vector<Test>::const_reverse_iterator iter = v.crbegin();
+    for(;iter != v.crend(); iter ++)
     {
-        Log("vectory memory addr %p", &v.at(i));
+        iter->description();
     }
 }
 

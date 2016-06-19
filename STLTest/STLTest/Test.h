@@ -18,7 +18,10 @@ public:
 	~Test();
     
     Test(string name, int count);
-    void description(){Log("Test name:%s, count:%d", _name.c_str(), _count);}
+    void description() const {Log("Test name:%s, count:%d", _name.c_str(), _count);}
+    
+    bool operator==(const Test &t);
+    Test operator+(const Test &t);
 private:
     string _name;
     int _count;
