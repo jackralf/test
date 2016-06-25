@@ -20,11 +20,18 @@ public:
     Test(string name, int count);
     void description() const {Log("Test name:%s, count:%d", _name.c_str(), _count);}
     
-    bool operator==(const Test &t);
-    Test operator+(const Test &t);
-private:
+    bool operator==(const Test &t) const;
+    Test operator+(const Test &t) const;
+    bool operator<(const Test &t) const;
+
     string _name;
     int _count;
+};
+
+class TestCmp
+{
+public:
+    bool operator()(const Test& t1, const Test& t2) const;
 };
 
 

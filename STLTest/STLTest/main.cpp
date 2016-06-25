@@ -7,13 +7,16 @@
 //
 
 #include "VectorTest.h"
+#include "MapTest.h"
 
 int main(int argc, const char * argv[]) {
     
-    VectorTest *t = new VectorTest();
-    t->test();
+//    VectorTest *t = new VectorTest();
+//    t->test();
     
-    delete t;
+    MapTest *m = new MapTest();
+    m->test();
     
+        
     return 0;
 }

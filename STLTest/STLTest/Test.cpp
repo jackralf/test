@@ -25,12 +25,12 @@ Test::~Test()
 //    Log("Test::~Test: name %s, count %d", _name.c_str(), _count);
 }
 
-bool Test::operator==(const Test &t)
+bool Test::operator==(const Test &t) const
 {
     return (this->_name == t._name && this->_count == t._count);
 }
 
-Test Test::operator+(const Test &t)
+Test Test::operator+(const Test &t) const
 {
     Test ret;
     
@@ -38,4 +38,14 @@ Test Test::operator+(const Test &t)
     ret._count = _count + t._count;
     
     return ret;
+}
+
+bool Test::operator<(const Test &t) const
+{
+    return _count > t._count;
+}
+
+bool TestCmp::operator()(const Test &t1, const Test &t2) const
+{
+    return t1._count > t2._count;
 }
