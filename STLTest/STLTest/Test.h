@@ -32,6 +32,7 @@ class TestCmp
 {
 public:
     bool operator()(const Test& t1, const Test& t2) const;
+    bool operator()(const pair<int, Test *>& t1, const pair<int, Test *>& t2) const;
 };
 
 

@@ -49,3 +49,8 @@ bool TestCmp::operator()(const Test &t1, const Test &t2) const
 {
     return t1._count > t2._count;
 }
+
+bool TestCmp::operator()(const pair<int, Test *> &t1, const pair<int, Test *> &t2) const
+{
+    return t1.second->_count > t2.second->_count;
+}
