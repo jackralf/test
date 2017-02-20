@@ -12,40 +12,38 @@ public class AddTwoNumbers {
     }
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        int add = 0;
-        ArrayList list = new ArrayList<Integer>();
-        while (l1 != null && l2 != null) {
-            int tmp = l1.val + l2.val;
-            int val = (tmp + add) % 10;
-            add = (tmp + add) / 10;
-            list.add(val);
-            l1 = l1.next;
-            l2 = l2.next;
+        ListNode c1 = l1;
+        ListNode c2 = l2;
+        ListNode c3 = new ListNode(0);
+        ListNode c4 = c3;
+        int sum = 0;
+        while (c1 != null || c2 != null) {
+            if (c1 != null) {
+                sum += c1.val;
+                c1 = c1.next;
+            }
+
+            if (c2 != null) {
+                sum += c2.val;
+                c2 = c2.next;
+            }
+
+            c3.next = new ListNode(sum % 10);
+            sum = sum / 10;
+            c3 = c3.next;
         }
 
-        ListNode l3 = null;
-        if (l1 != null || l2 != null) {
-            l3 = l1 != null ? l1 : l2;
+        if (sum > 0) {
+            c3.next = new ListNode(sum);
         }
 
-        while (l3 != null) {
-            int val = (l3.val + add) % 10;
-            add = (l3.val + add) / 10;
-            list.add(val);
-            l3 = l3.next;
-        }
-
-        if (add > 0) {
-            list.add(add);
-        }
-
-        return makeList(list);
+        return c4.next;
     }
 
     public static void main(String[] args) {
         AddTwoNumbers t = new AddTwoNumbers();
-        ListNode l1 = t.makeList(new ArrayList<Integer>(){{add(1);add(8);}});
-        ListNode l2 = t.makeList(new ArrayList<Integer>(){{add(0);}});
+        ListNode l1 = t.makeList(new ArrayList<Integer>(){{add(5);}});
+        ListNode l2 = t.makeList(new ArrayList<Integer>(){{add(5);}});
         ListNode l3 = t.addTwoNumbers(l1, l2);
         t.printList(l3);
     }
