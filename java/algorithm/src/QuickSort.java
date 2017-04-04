@@ -19,9 +19,11 @@ public class QuickSort {
         for (int j = p; j < r; j ++) {
             if (data[j] <= x) {
                 i ++;
-                int tmp = data[j];
-                data[j] = data[i];
-                data[i] = tmp;
+                if (i != j) {
+                    int tmp = data[j];
+                    data[j] = data[i];
+                    data[i] = tmp;
+                }
             }
         }
         int tmp = data[i + 1];
@@ -32,7 +34,7 @@ public class QuickSort {
     }
 
     public static void main(String[] args) {
-        int[] data = new int[]{4,3,5,2,1,6,4,2,3,1};
+        int[] data = new int[]{4,3,5,2,1,6,4,2,3,10};
         QuickSort q = new QuickSort();
         q.sort(data, 0, data.length - 1);
         System.out.println(Arrays.toString(data));

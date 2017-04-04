@@ -1,15 +1,9 @@
-import java.util.ArrayList;
+import util.ListNode;
 
 /**
  * Created by machenfei on 2017/2/19.
  */
 public class AddTwoNumbers {
-
-    public static class ListNode {
-             int val;
-             ListNode next;
-             ListNode(int x) { val = x; }
-    }
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode c1 = l1;
@@ -42,34 +36,10 @@ public class AddTwoNumbers {
 
     public static void main(String[] args) {
         AddTwoNumbers t = new AddTwoNumbers();
-        ListNode l1 = t.makeList(new ArrayList<Integer>(){{add(5);}});
-        ListNode l2 = t.makeList(new ArrayList<Integer>(){{add(5);}});
+        ListNode l1 = ListNode.makeList(new int[]{5});
+        ListNode l2 = ListNode.makeList(new int[]{5});
         ListNode l3 = t.addTwoNumbers(l1, l2);
-        t.printList(l3);
+        System.out.println(l3);
     }
 
-    public ListNode makeList(ArrayList<Integer> list) {
-        ListNode l = null;
-        ListNode last = null;
-        for (int value : list) {
-            ListNode tmp = new ListNode(value);
-            tmp.next = null;
-            if (l == null) {
-                l = tmp;
-            }
-            if (last != null) {
-                last.next = tmp;
-            }
-            last = tmp;
-        }
-
-        return l;
-    }
-
-    public void printList(ListNode l) {
-        while(l != null) {
-            System.out.println(l.val);
-            l = l.next;
-        }
-    }
 }
